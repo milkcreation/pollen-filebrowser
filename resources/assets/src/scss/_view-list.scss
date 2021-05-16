@@ -1,0 +1,36 @@
+[data-control="file-manager.content"][data-view="list"] {
+  & .Filebrowser-contentFile:nth-child(odd) {
+    background-color: tify_theme_color("white");
+  }
+  & .Filebrowser-contentFile:nth-child(even) {
+    background-color: tify_theme_color("gray", 100);
+  }
+
+  & .Filebrowser-contentFileLink {
+    display: block;
+    padding: 5px 10px;
+    border-bottom: solid 1px tify_theme_color("gray", 300);
+  }
+
+  & .Filebrowser-contentFile.selected .Filebrowser-contentFileLink {
+    color: tify_theme_color("gray", 900);
+    background-color: tify_theme_color("gray", 300);
+  }
+
+  & .Filebrowser-contentFileAttr {
+    display: inline-block;
+  }
+
+  & .Filebrowser-contentFileAttr--preview {
+    vertical-align: middle;
+    width: 20px;
+  }
+
+  & .Filebrowser-contentFileAttr--name {
+    width: calc(50% - 20px);
+  }
+
+  & .Filebrowser-contentFileAttr--size {
+    width: 10%;
+  }
+}

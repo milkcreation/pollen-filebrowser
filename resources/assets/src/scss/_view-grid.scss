@@ -1,0 +1,59 @@
+[data-control="file-manager.content"][data-view="grid"] {
+
+  & .Filebrowser-contentFileList {
+    margin: 0 -10px;
+  }
+
+  & .Filebrowser-contentFile {
+    float: left;
+    padding: 10px;
+  }
+
+  & .Filebrowser-contentFileLink {
+    display: block;
+    width: 200px;
+    height: 200px;
+    border: solid 1px tify_theme_color("gray", 300);
+    text-align: center;
+    overflow: hidden;
+    background-color: tify_theme_color("white");
+  }
+
+  & .Filebrowser-contentFile.selected .Filebrowser-contentFileLink {
+    border: solid 1px tify_theme_color("gray", 400);
+  }
+
+  & .Filebrowser-contentFile.selected .Filebrowser-contentFileLink {
+    color: tify_theme_color("gray", 900);
+    background-color: tify_theme_color("gray", 300);
+  }
+
+  & .Filebrowser-contentFileAttr {
+    display:none;
+  }
+
+  & .Filebrowser-contentFileAttr--preview {
+    display: block;
+    margin: 10px auto;
+    width: 150px;
+    height: 150px;
+  }
+
+  & .Filebrowser-icon--file {
+    width: 150px;
+    height: 150px;
+    font-size: 150px;
+    line-height: 1;
+  }
+
+  & .Filebrowser-contentFileAttr--name {
+    position: absolute;
+    display:block;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    padding: 5px;
+    background-color: tify_theme_color("white");
+  }
+}

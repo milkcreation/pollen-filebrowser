@@ -1,0 +1,69 @@
+.Filebrowser-preview {
+  & {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+  }
+}
+
+.Filebrowser-button--fullscreen {
+  position: absolute;
+  top:0;
+  right:0;
+  padding: 4px;
+  user-select: none;
+  line-height: 1;
+  font-size: 11px;
+  cursor: pointer;
+  z-index:10;
+}
+
+.Filebrowser-preview--default {
+  text-align: center;
+
+  .Filebrowser-icon--file {
+    width: 150px;
+    height: 150px;
+    font-size: 150px;
+    line-height: 1;
+  }
+}
+
+.Filebrowser-preview--pdf {
+  position:relative;
+  top: auto;
+  left: auto;
+  width: auto;
+  height: auto;
+  transform: none;
+
+  .PdfPreview-view {
+    height: 150px;
+    width: auto;
+    position: relative;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .Filebrowser-button {
+    padding: 3px 5px;
+    user-select: none;
+    line-height: 1;
+    font-size: 11px;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+
+  .PdfPreview-page {
+    font-size: 13px;
+  }
+}
+
+
+.Filebrowser-preview--image {
+  object-fit: contain;
+}

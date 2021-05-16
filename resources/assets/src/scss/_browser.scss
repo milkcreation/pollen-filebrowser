@@ -1,0 +1,52 @@
+.Filebrowser-browser {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 300px;
+  width: 300px;
+  z-index: 10;
+  padding: 10px;
+  background-color: tify_theme_color("white");
+  border-right: solid 1px tify_theme_color("gray", 300);
+}
+
+.Filebrowser-browserItem {
+  line-height: 1.4;
+}
+
+.Filebrowser-browserItem > .Filebrowser-browserItems {
+  padding-left: 5px;
+  //display:none;
+}
+
+.Filebrowser-browserItemContent {
+  color: tify_theme_color("gray", 600);
+  font-size: 12px;
+
+}
+
+.Filebrowser-browserItem--dir {
+  & {
+    margin-bottom: 5px;
+  }
+
+  & > .Filebrowser-browserItemContent {
+    color: tify_theme_color("gray", 900);
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  & > .Filebrowser-browserItemContent:active,
+  & > .Filebrowser-browserItemContent:focus,
+  & > .Filebrowser-browserItemContent:hover {
+    color: tify_theme_color("gray", 900);
+  }
+
+  & > .Filebrowser-browserItemContent[aria-selected="true"] {
+    font-weight: bold;
+  }
+
+  & > .Filebrowser-browserItemContent[aria-selected="true"] > .Filebrowser-browserItems {
+    display: inherit;
+  }
+}
