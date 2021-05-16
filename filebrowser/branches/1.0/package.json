@@ -1,0 +1,18 @@
+{
+  "name": "@pollen-solutions/filebrowser",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jordy Manner",
+  "license": "ISC",
+  "devDependencies": {
+  },
+  "dependencies": {
+    "@pollen-solutions/field": "file:../field/",
+    "@pollen-solutions/partial": "file:../partial/",
+    "@pollen-solutions/pdf": "file:../pdf/",
+    "@pollen-solutions/support": "file:../support/"
+  }
+}

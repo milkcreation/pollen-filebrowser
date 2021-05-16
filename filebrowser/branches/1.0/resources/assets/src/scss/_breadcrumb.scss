@@ -1,0 +1,29 @@
+.Filebrowser-breadcrumb {
+  padding: 0 10px;
+}
+
+.Filebrowser-breadcrumbPart {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 2px 0 0;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.Filebrowser-breadcrumbPart + .Filebrowser-breadcrumbPart::before {
+  padding: 0 1px;
+  content: "/\00a0";
+  color: tify_theme_color("gray", 500);
+}
+
+.Filebrowser-breadcrumbPartLink {
+  text-decoration: none;
+  color: tify_theme_color("gray", 900);
+}
+
+.Filebrowser-breadcrumbPartLink:active,
+.Filebrowser-breadcrumbPartLink:focus,
+.Filebrowser-breadcrumbPartLink:hover {
+  color: tify_theme_color("gray", 600);
+}

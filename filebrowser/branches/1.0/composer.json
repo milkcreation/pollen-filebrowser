@@ -7,7 +7,7 @@
     "component",
     "filebrowser"
   ],
-  "time": "2021-05-14",
+  "time": "2021-05-16",
   "license": "MIT",
   "authors": [
     {
@@ -25,10 +25,13 @@
   "require": {
     "php": ">=7.4",
     "composer/installers": "~1.0",
+    "fortawesome/font-awesome": "^5.15",
     "pollen-solutions/http": "^1.0",
     "pollen-solutions/filesystem": "^1.0",
     "pollen-solutions/partial": "^1.0",
-    "pollen-solutions/support": "^1.0"
+    "pollen-solutions/pdf": "^1.0",
+    "pollen-solutions/support": "^1.0",
+    "pollen-solutions/routing": "^1.0"
   },
   "require-dev": {
     "phpunit/phpunit": "^9.0"

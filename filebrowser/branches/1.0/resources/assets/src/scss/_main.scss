@@ -1,0 +1,215 @@
+
+
+.FileManager {
+  position: relative;
+  height: 800px;
+  background-color: tify_theme_color("white");
+  color: tify_theme_color("gray", 900);
+  border: solid 1px tify_theme_color("gray", 300);
+  z-index:1;
+}
+
+// TITRE
+.Filebrowser-title {
+  font-size: 18px;
+  color: tify_theme_color("gray", 900);
+}
+
+// BOUTONS
+.Filebrowser-button {
+  display: inline-block;
+  border: solid 2px tify_theme_color("gray", 900);
+  background-color: tify_theme_color("white");
+  color: tify_theme_color("gray", 900);
+  font-weight: bold;
+  padding: 5px 20px;
+}
+
+.Filebrowser-button:hover,
+.Filebrowser-button:focus,
+.Filebrowser-button:active {
+  background-color: tify_theme_color("gray", 900);
+  color: tify_theme_color("white");
+}
+
+.Filebrowser-button:hover *,
+.Filebrowser-button:focus *,
+.Filebrowser-button:active * {
+  color: tify_theme_color("white");
+}
+
+.Filebrowser-button--valid {
+  border: none;
+  background-color: tify_theme_color("green", 600);
+  color: tify_theme_color("white");
+}
+
+.Filebrowser-button--valid:hover,
+.Filebrowser-button--valid:focus,
+.Filebrowser-button--valid:active {
+  background-color: tify_theme_color("green", 500);
+}
+
+.Filebrowser-button--cancel {
+  border: none;
+  background-color: tify_theme_color("red", 600);
+  color: tify_theme_color("white");
+}
+
+.Filebrowser-button--cancel:hover,
+.Filebrowser-button--cancel:focus,
+.Filebrowser-button--cancel:active {
+  background-color: tify_theme_color("red", 500);
+}
+
+.Filebrowser-button--toggle[aria-visible="true"] {
+  display: none;
+}
+
+// ACTIONS
+.Filebrowser-action {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.Filebrowser-action .Filebrowser-title {
+  color: tify_theme_color("gray", 900);
+  font-weight: bold;
+  text-align: center;
+  padding: 5px 0;
+  border-bottom: none;
+}
+
+.Filebrowser-action--toggleable {
+  display: none;
+}
+
+.Filebrowser-actionNotices {
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.Filebrowser-actionClose {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: tify_theme_color("gray", 900);
+  line-height: 1;
+}
+
+.Filebrowser-actionClose:active,
+.Filebrowser-actionClose:focus,
+.Filebrowser-actionClose:hover {
+  color: tify_theme_color("gray", 700);
+}
+
+// ACTIONS > FORMULAIRE
+.Filebrowser-actionFormFields {
+  margin-bottom: 10px;
+}
+
+.Filebrowser-actionFormButtons {
+  text-align: center;
+}
+
+// CONTENU DU REPERTOIRE
+.Filebrowser-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px;
+  width:calc(100% - 300px);
+}
+
+.Filebrowser-contentHeader {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  margin: 0;
+  height: 50px;
+  line-height: 50px;
+  background-color: tify_theme_color("white");
+  border-bottom: solid 1px tify_theme_color("gray", 300);
+}
+
+.Filebrowser-contentHeader .Filebrowser-switcher {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0 10px;
+  line-height: 50px;
+  border-left: solid 1px tify_theme_color("gray", 300);
+}
+
+.Filebrowser-contentBody {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  bottom: 50px;
+  left: 0;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.Filebrowser-content.load::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 1;
+}
+
+/**
+ * Liste des fichiers
+ */
+.Filebrowser-contentFileList > * {
+  box-sizing: border-box;
+}
+
+.Filebrowser-contentFileList::before,
+.Filebrowser-contentFileList::after {
+  display: table;
+  content: "";
+}
+
+.Filebrowser-contentFileList::after {
+  clear: both;
+}
+
+.Filebrowser-contentFileList {
+  margin: 0;
+  padding: 0;
+}
+
+.Filebrowser-contentFile {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.Filebrowser-contentFileLink {
+  color: tify_theme_color("gray", 900);
+}
+
+.Filebrowser-contentFileLink:active,
+.Filebrowser-contentFileLink:focus,
+.Filebrowser-contentFileLink:hover {
+  color: tify_theme_color("gray", 900);
+}
+
+.Filebrowser-contentFileLink {
+  position: relative;
+  text-decoration: none;
+}
+
+.Filebrowser-contentFilePreview {
+  position: relative;
+  overflow: hidden;
+}
