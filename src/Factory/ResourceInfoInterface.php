@@ -16,6 +16,13 @@ interface ResourceInfoInterface extends FactoryInterface
     public function getBasename(string $suffix = ''): string;
 
     /**
+     * Récupération du chemin relatif vers le répertoire parent.
+     *
+     * @return string
+     */
+    public function getDirname(): string;
+
+    /**
      * Récupération de la date formatée.
      *
      * @param string $format
@@ -25,11 +32,21 @@ interface ResourceInfoInterface extends FactoryInterface
     public function getHumanDate(string $format = 'Y-m-d'): ?string;
 
     /**
-     * Récupération de l'icône représentative.
+     * Récupération de type de ressource qualifiée.
      *
      * @return string
      */
-    public function getIcon(): string;
+    public function getHumanType(): string;
+
+    /**
+     * Récupération de l'icône représentative.
+     *
+     * @param array $attrs
+     * @param string $placeholder
+     *
+     * @return string
+     */
+    public function getIcon(array $attrs = [], string $placeholder = '_default'): string;
 
     /**
      * Récupération de la date de dernière modification.
@@ -65,4 +82,11 @@ interface ResourceInfoInterface extends FactoryInterface
      * @return bool
      */
     public function isLocal(): bool;
+
+    /**
+     * Vérifie si la ressource est sélectionnée.
+     *
+     * @return bool
+     */
+    public function isSelected(): bool;
 }

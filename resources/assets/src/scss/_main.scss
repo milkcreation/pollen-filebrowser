@@ -1,43 +1,111 @@
+@import "./variables";
 
-
-.FileManager {
+.Filebrowser {
   position: relative;
+  display: flex;
+  flex-direction: row;
   height: 800px;
-  background-color: tify_theme_color("white");
-  color: tify_theme_color("gray", 900);
-  border: solid 1px tify_theme_color("gray", 300);
-  z-index:1;
+  background-color: filebrowserColor(white);
+  border: solid 1px filebrowserColor(lighter);
 }
 
 // TITRE
 .Filebrowser-title {
   font-size: 18px;
-  color: tify_theme_color("gray", 900);
+  color: filebrowserColor(regular);
 }
 
 // BOUTONS
-.Filebrowser-button {
-  display: inline-block;
-  border: solid 2px tify_theme_color("gray", 900);
-  background-color: tify_theme_color("white");
-  color: tify_theme_color("gray", 900);
+a, button {
+  &[class*=" Filebrowser-button"],
+  &[class^="Filebrowser-button"] {
+      display: inline-block;
+      border: solid 2px filebrowserColor(regular);
+      background-color: filebrowserColor(white);
+      color: filebrowserColor(regular);
+      font-weight: bold;
+      font-size: 13px;
+      line-height: 1;
+      padding: 5px 20px;
+
+      &:hover,
+      &:focus {
+        background-color: filebrowserColor(regular);
+        color: filebrowserColor(white);
+      }
+
+      &,
+      &:active,
+      &:visited {
+        background-color: filebrowserColor(white);
+        color: filebrowserColor(regular);
+      }
+  }
+}
+
+.Filebrowser-button--submit {
+  &:hover,
+  &:focus {
+    background-color: filebrowserColor(regular);
+    color: filebrowserColor(white);
+  }
+
+  &,
+  &:active,
+  &:visited {
+    background-color: filebrowserColor(white);
+    color: filebrowserColor(regular);
+  }
+}
+
+// INFOS
+.Filebrowser-infoIcon {
+  margin-bottom: 10px;
+}
+
+.Filebrowser-infos {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.Filebrowser-info {
+  display: flex;
+  color:filebrowserColor(regular);
+  flex-direction: row;
+  font-size: 12px;
+  text-align: left;
+  border-bottom: dotted 1px filebrowserColor(lighter);
+}
+
+.Filebrowser-infoLabel {
+  margin: 0;
+  width: 40%;
+  flex-grow: 0;
+  flex-shrink: 0;
   font-weight: bold;
-  padding: 5px 20px;
 }
 
-.Filebrowser-button:hover,
-.Filebrowser-button:focus,
-.Filebrowser-button:active {
-  background-color: tify_theme_color("gray", 900);
-  color: tify_theme_color("white");
+// FORM
+.Filebrowser-formNotice {
+  font-size: 13px;
 }
 
-.Filebrowser-button:hover *,
-.Filebrowser-button:focus *,
-.Filebrowser-button:active * {
-  color: tify_theme_color("white");
+.Filebrowser-formFields {
+  margin-bottom: 10px;
+  text-align: left;
+  font-size:14px;
+
+  input[type="text"] {
+    width:100%;
+    padding: 0.5em 1em;
+    border: 1px solid filebrowserColor(regular);
+    outline: none;
+  }
 }
 
+/** OLD * /
 .Filebrowser-button--valid {
   border: none;
   background-color: tify_theme_color("green", 600);
@@ -114,28 +182,6 @@
 }
 
 // CONTENU DU REPERTOIRE
-.Filebrowser-content {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  padding: 10px;
-  width:calc(100% - 300px);
-}
-
-.Filebrowser-contentHeader {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1;
-  margin: 0;
-  height: 50px;
-  line-height: 50px;
-  background-color: tify_theme_color("white");
-  border-bottom: solid 1px tify_theme_color("gray", 300);
-}
-
 .Filebrowser-contentHeader .Filebrowser-switcher {
   position: absolute;
   right: 0;
@@ -143,16 +189,6 @@
   padding: 0 10px;
   line-height: 50px;
   border-left: solid 1px tify_theme_color("gray", 300);
-}
-
-.Filebrowser-contentBody {
-  position: absolute;
-  top: 50px;
-  right: 0;
-  bottom: 50px;
-  left: 0;
-  overflow: hidden;
-  overflow-y: auto;
 }
 
 .Filebrowser-content.load::after {
@@ -166,50 +202,8 @@
   z-index: 1;
 }
 
-/**
- * Liste des fichiers
- */
-.Filebrowser-contentFileList > * {
-  box-sizing: border-box;
-}
-
-.Filebrowser-contentFileList::before,
-.Filebrowser-contentFileList::after {
-  display: table;
-  content: "";
-}
-
-.Filebrowser-contentFileList::after {
-  clear: both;
-}
-
-.Filebrowser-contentFileList {
-  margin: 0;
-  padding: 0;
-}
-
-.Filebrowser-contentFile {
-  display: block;
-  margin: 0;
-  padding: 0;
-}
-
-.Filebrowser-contentFileLink {
-  color: tify_theme_color("gray", 900);
-}
-
-.Filebrowser-contentFileLink:active,
-.Filebrowser-contentFileLink:focus,
-.Filebrowser-contentFileLink:hover {
-  color: tify_theme_color("gray", 900);
-}
-
-.Filebrowser-contentFileLink {
-  position: relative;
-  text-decoration: none;
-}
-
 .Filebrowser-contentFilePreview {
   position: relative;
   overflow: hidden;
 }
+ */

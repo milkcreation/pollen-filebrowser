@@ -1,126 +1,15 @@
-@-webkit-keyframes passing-through {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  30%, 70% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-40px);
-  }
-}
+@import "./variables";
 
-@-moz-keyframes passing-through {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  30%, 70% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-40px);
-  }
-}
+.Filebrowser-uploader {
+  position: relative;
+  overflow: hidden;
+  background-color: filebrowserColor(lighter);
+  min-height: 150px;
+  border: 2px dashed filebrowserColor(light);
+  padding: 0 20px;
 
-@keyframes passing-through {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  30%, 70% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-40px);
-  }
-}
-
-@-webkit-keyframes slide-in {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  30% {
-    opacity: 1;
-
-    transform: translateY(0px);
-  }
-}
-
-@-moz-keyframes slide-in {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  30% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-}
-
-@keyframes slide-in {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  30% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-}
-
-@-webkit-keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  10% {
-    transform: scale(1.1);
-  }
-  20% {
-    transform: scale(1);
-  }
-}
-
-@-moz-keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  10% {
-    transform: scale(1.1);
-  }
-  20% {
-    transform: scale(1);
-  }
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  10% {
-    transform: scale(1.1);
-  }
-  20% {
-    transform: scale(1);
-  }
-}
-
-.Filebrowser-actionForm--upload {
-  // basic.css
   &, & * {
     box-sizing: border-box;
-  }
-
-  & {
-    position: relative;
   }
 
   & .dz-preview {
@@ -166,11 +55,8 @@
 
   // dropzone.css
   & {
-    min-height: 150px;
-    border: 2px dashed tify_theme_color("gray", 300);
-    padding: 0 20px;
-  }
 
+  }
 
   &.dz-clickable {
     cursor: pointer;
@@ -394,27 +280,141 @@
   }
 }
 
-.Filebrowser-actionContainer {
-  position:relative;
-}
-
-.Filebrowser-actionFormLegend {
+.Filebrowser-uploaderHelper {
   position:absolute;
   top:50%;
   left:50%;
-  width:75%;
-  color: tify_theme_color("gray", 500);
-  transform: translate(-50%, -50%);
+  width:100%;
+  transform: translate(-50%,-50%);
+  color: filebrowserColor(light);
   text-align: center;
-  z-index:0;
+  pointer-events: none;
 }
 
-.Filebrowser-actionForm--upload {
-  & {
-    z-index:1;
-  }
+.Filebrowser-uploaderHelperIcon {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+  pointer-events: none;
+  fill: filebrowserColor(light);
+}
 
-  & .Filebrowser-actionFormFallback {
-    display: none;
+
+/*
+@-webkit-keyframes passing-through {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  30%, 70% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px);
   }
 }
+
+@-moz-keyframes passing-through {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  30%, 70% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+}
+
+@keyframes passing-through {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  30%, 70% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+}
+
+@-webkit-keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  30% {
+    opacity: 1;
+
+    transform: translateY(0px);
+  }
+}
+
+@-moz-keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.1);
+  }
+  20% {
+    transform: scale(1);
+  }
+}
+
+@-moz-keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.1);
+  }
+  20% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.1);
+  }
+  20% {
+    transform: scale(1);
+  }
+}
+
+ */

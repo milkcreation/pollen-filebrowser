@@ -1,38 +1,17 @@
 <?php
 /**
  * @var Pollen\Filebrowser\FilebrowserViewLoaderInterface $this
- * @var Pollen\Filebrowser\Factory\FileInfoInterface $file
+ * @var Pollen\Filebrowser\Factory\SelectInfoInterface|null $selectinfo
  */
 ?>
-<div class="Filebrowser-sidebarInfos" data-control="filebrowser.sidebar.file-infos">
-    <h3 class="Filebrowser-title"><?php _e('Élèment sélectionné', 'tify'); ?></h3>
-    <?php $this->insert('file-infos', compact('file')); ?>
+<div class="Filebrowser-sidebarSelected<?php echo $selectinfo ?: ' hidden'; ?>" data-filebrowser="sidebar.selected">
+    <h3 class="Filebrowser-sidebarTitle"><?php echo 'Sélection'; ?></h3>
+
+    <?php $this->insert('sidebar-selected', $this->all()); ?>
 </div>
 
-<h3 class="Filebrowser-title"><?php _e('Répertoire courant', 'tify'); ?></h3>
+<div class="Filebrowser-sidebarPath" data-filebrowser="sidebar.path">
+    <h3 class="Filebrowser-sidebarTitle"><?php echo 'Répertoire'; ?></h3>
 
-<ul class="Filebrowser-sidebarActions">
-    <li class="Filebrowser-sidebarAction Filebrowser-sidebarAction--create">
-
-        <?php $this->insert('action-create', compact('file')); ?>
-
-        <div class="Filebrowser-sidebarActionButton">
-            <a href="#"
-               class="Filebrowser-button Filebrowser-button--toggle"
-               data-control="filebrowser.action.toggle"
-               data-action="create"
-            ><?php _e('Créer un dossier', 'tify'); ?></a>
-        </div>
-    </li>
-
-    <li class="Filebrowser-sidebarAction Filebrowser-sidebarAction--upload">
-        <?php $this->insert('action-upload', compact('file')); ?>
-        <div class="Filebrowser-sidebarActionButton">
-            <a href="#"
-               class="Filebrowser-button Filebrowser-button--toggle"
-               data-control="filebrowser.action.toggle"
-               data-action="upload"
-            ><?php _e('Ajouter des fichiers', 'tify'); ?></a>
-        </div>
-    </li>
-</ul>
+    <?php $this->insert('sidebar-path', $this->all()); ?>
+</div>

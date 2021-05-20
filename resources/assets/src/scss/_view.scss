@@ -1,0 +1,37 @@
+@import "./variables";
+
+// Dépendances
+@import "view--grid";
+@import "view--list";
+
+.Filebrowser-view {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.Filebrowser-viewHeader {
+  height: 50px;
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding: 0 10px;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  background-color: filebrowserColor(white);
+  border-bottom: solid 1px filebrowserColor(lighter);
+}
+
+.Filebrowser-viewBody {
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+
+.Filebrowser-fileCards {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 5px;
+  column-gap: 5px;
+}

@@ -1,29 +1,65 @@
+@import "./variables";
+
 .Filebrowser-breadcrumb {
-  padding: 0 10px;
+  flex-grow: 1;
+  flex-shrink: 1;
+
+  display: flex;
+  column-gap: 5px;
+  align-items: center;
+  color: filebrowserColor(regular);
 }
 
 .Filebrowser-breadcrumbPart {
-  display: inline-block;
-  vertical-align: middle;
   margin: 0 2px 0 0;
   padding: 0;
   font-size: 14px;
   line-height: 1;
+
+  + .Filebrowser-breadcrumbPart {
+    position: relative;
+    padding-left: 15px;
+
+    &::before {
+      position: absolute;
+      top:50%;
+      left:0;
+      transform: translateY(-50%);
+      padding: 0 1px;
+      content: "/\00a0";
+    }
+  }
 }
 
-.Filebrowser-breadcrumbPart + .Filebrowser-breadcrumbPart::before {
-  padding: 0 1px;
-  content: "/\00a0";
-  color: tify_theme_color("gray", 500);
-}
-
-.Filebrowser-breadcrumbPartLink {
+.Filebrowser-breadcrumbLink {
+  display: block;
   text-decoration: none;
-  color: tify_theme_color("gray", 900);
-}
+  background-color: filebrowserColor(transparent);
+  border: none;
+  cursor: pointer;
 
-.Filebrowser-breadcrumbPartLink:active,
-.Filebrowser-breadcrumbPartLink:focus,
-.Filebrowser-breadcrumbPartLink:hover {
-  color: tify_theme_color("gray", 600);
+  &:focus,
+  &:hover {
+    color: filebrowserColor(regular);
+
+    svg {
+      fill: filebrowserColor(regular);
+    }
+  }
+
+  &,
+  &:active,
+  &:visited {
+    color: filebrowserColor(regular);
+
+    svg {
+      fill: filebrowserColor(regular);
+    }
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    pointer-events: none;
+  }
 }

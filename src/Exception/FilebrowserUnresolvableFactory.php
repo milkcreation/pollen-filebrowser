@@ -6,6 +6,6 @@ namespace Pollen\Filebrowser\Exception;
 
 use RuntimeException;
 
-class FilebrowserUnresolvableFactory extends RuntimeException
+class FilebrowserUnresolvableFactory extends RuntimeException implements FilebrowserException
 {
 }

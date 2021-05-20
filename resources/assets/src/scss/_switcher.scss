@@ -1,31 +1,19 @@
+@import "./variables";
+
 .Filebrowser-switcher {
-  margin:0 -5px;
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
-.Filebrowser-switcher::after,
-.Filebrowser-switcher::after {
-  display: table;
-  content: "";
-}
-.Filebrowser-switcher::after {
-  clear:both;
+.Filebrowser-switcherToggle {
+  background-color: filebrowserColor(transparent);
+  border:none;
+  cursor: pointer;
 }
 
-.Filebrowser-switch {
-  float:left;
-  padding:0 5px;
-}
-
-.Filebrowser-switchLink {
-  color: tify_theme_color("gray", 500);
-}
-
-.Filebrowser-switchLink:active,
-.Filebrowser-switchLink:focus,
-.Filebrowser-switchLink:hover{
-  color: tify_theme_color("gray", 900);
-}
-
-.Filebrowser-switch.selected  .Filebrowser-switchLink{
-  color: tify_theme_color("gray", 900);
+.Filebrowser-switcherToggleIcon {
+  width:16px;
+  height:16px;
+  fill:filebrowserColor(regular);
+  pointer-events: none;
 }

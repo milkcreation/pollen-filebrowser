@@ -1,0 +1,23 @@
+[data-filebrowser="view"][data-view="grid"] {
+  .Filebrowser-fileCards {
+    flex-direction: row;
+    align-content: center;
+  }
+
+  .Filebrowser-fileCard {
+    width: calc(25% - 5px);
+    align-items: center;
+    text-align:center;
+    flex-direction: column;
+  }
+
+  .Filebrowser-fileCardIcon {
+    width: 150px;
+    height: 150px;
+  }
+
+  .Filebrowser-fileCardSize,
+  .Filebrowser-fileCardMTime {
+    display: none
+  }
+}

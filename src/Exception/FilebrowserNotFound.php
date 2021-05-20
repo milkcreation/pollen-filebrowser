@@ -7,9 +7,15 @@ namespace Pollen\Filebrowser\Exception;
 use InvalidArgumentException;
 use Throwable;
 
-class FilebrowserNotFound extends InvalidArgumentException
+class FilebrowserNotFound extends InvalidArgumentException implements FilebrowserException
 {
-    public function __construct(?string $name = null, string $message = "", int $code = 0, Throwable $previous = null)
+    /**
+     * @param string|null $name
+     * @param string $message
+     * @param int $code
+     * @param \Throwable|null $previous
+     */
+    public function __construct(?string $name = null, string $message = '', int $code = 0, Throwable $previous = null)
     {
         if (empty($message)) {
             if ($name !== null) {

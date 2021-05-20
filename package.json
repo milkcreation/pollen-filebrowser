@@ -8,6 +8,7 @@
   "author": "Jordy Manner",
   "license": "ISC",
   "devDependencies": {
+    "dropzone": "^5.9.2"
   },
   "dependencies": {
     "@pollen-solutions/field": "file:../field/",

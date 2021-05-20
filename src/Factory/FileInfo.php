@@ -6,6 +6,7 @@ namespace Pollen\Filebrowser\Factory;
 
 use League\Flysystem\FilesystemException;
 use League\Flysystem\FileAttributes;
+use SplFileInfo;
 
 class FileInfo extends AbstractResourceInfo implements FileInfoInterface
 {
@@ -17,9 +18,9 @@ class FileInfo extends AbstractResourceInfo implements FileInfoInterface
     /**
      * @inheritDoc
      */
-    public function getIcon(): string
+    public function getIcon(array $attrs = [], string $placeholder = 'file'): string
     {
-        return $this->filebrowser()->getFileIcon($this);
+        return $this->filebrowser()->getFileIcon($this, $attrs, $placeholder);
     }
 
     /**
@@ -35,6 +36,22 @@ class FileInfo extends AbstractResourceInfo implements FileInfoInterface
         }
 
         return null;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getDownloadUrl(): string
+    {
+        return $this->filebrowser()->getActionUrl('downloadFile', ['path' => $this->getRelPath()]);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getExtension(): string
+    {
+        return $this->getSplFileInfo()->getExtension();
     }
 
     /**
@@ -59,5 +76,13 @@ class FileInfo extends AbstractResourceInfo implements FileInfoInterface
         } catch (FilesystemException $e) {
             return 0;
         }
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getSplFileInfo(): SplFileInfo
+    {
+        return $this->filebrowser()->filesystem()->getSplFileInfo($this->getRelPath());
     }
 }

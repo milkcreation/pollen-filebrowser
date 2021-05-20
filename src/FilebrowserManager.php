@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace Pollen\Filebrowser;
 
-use Pollen\Filebrowser\Controller\SpritesController;
+use Pollen\Filebrowser\Controller\ActionController;
+use Pollen\Filebrowser\Controller\SpriteController;
 use Pollen\Filebrowser\Exception\FilebrowserNotFound;
 use Pollen\Filebrowser\Exception\FilebrowserRouteNotFound;
 use Pollen\Filebrowser\Exception\FilebrowserUnresolvable;
@@ -97,7 +98,15 @@ class FilebrowserManager implements FilebrowserManagerInterface
             $this->setResourcesBaseDir(dirname(__DIR__) . '/resources');
 
             $this->routes['sprites'] = $this->router()->get(
-                'api/'. md5(__CLASS__). '/sprites/{sprite}', SpritesController::class
+                'api/'. md5(__CLASS__). '/sprites/{sprite}', SpriteController::class
+            );
+
+            $this->routes['filebrowser-action'] = $this->router()->get(
+                'api/'. md5(__CLASS__). '/action/{name}', ActionController::class
+            );
+
+            $this->router()->xhr(
+                'api/'. md5(__CLASS__). '/action/{name}', ActionController::class
             );
 
             $this->setBooted();

@@ -7,7 +7,7 @@ namespace Pollen\Filebrowser\Exception;
 use RuntimeException;
 use Throwable;
 
-class FilebrowserUnresolvable extends RuntimeException
+class FilebrowserUnresolvable extends RuntimeException implements FilebrowserException
 {
     public function __construct(?string $name = null, string $message = "", int $code = 0, Throwable $previous = null)
     {

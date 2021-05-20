@@ -8,7 +8,6 @@ use League\Flysystem\DirectoryAttributes;
 use League\Flysystem\FileAttributes;
 use League\Flysystem\FilesystemException;
 use Pollen\Filesystem\FilesystemInterface;
-use Pollen\Filesystem\LocalFilesystemInterface;
 
 class FileCollector implements FileCollectorInterface
 {
@@ -53,14 +52,12 @@ class FileCollector implements FileCollectorInterface
 
             foreach ($resources as $resource) {
                 if ($resource instanceof FileAttributes) {
-                    $file = new FileInfo($resource);
+                    $file = new FileInfo($resource, $this->filebrowser());
                 } elseif ($resource instanceof DirectoryAttributes) {
-                    $file = new DirInfo($resource);
+                    $file = new DirInfo($resource, $this->filebrowser());
                 } else {
                     continue;
                 }
-
-                $file->setFilebrowser($this->filebrowser());
 
                 $this->files[] = $file;
             }
