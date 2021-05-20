@@ -30,7 +30,7 @@
 <?php echo partial('tag', [
     'tag'     => 'a',
     'attrs'   => [
-        'class'  => 'Filebrowser-button Filebrowser-button--fullscreen',
+        'class'  => 'Filebrowser-button--fullscreen',
         'href'   => $file->getUrl(),
         'target' => '_blank'
     ],

@@ -1,0 +1,43 @@
+@import "./variables";
+
+.Filebrowser-fileCard {
+  flex-grow: 0;
+  flex-shrink: 0;
+  display: flex;
+  padding: 10px;
+  color: filebrowserColor(regular);
+  cursor: pointer;
+  //border: solid 1px filebrowserColor(lighter);
+
+  &.selected {
+    background-color: filebrowserColor(lighter);
+  }
+
+  > * {
+    pointer-events: none;
+  }
+}
+
+.Filebrowser-fileCardIcon {
+  width: 150px;
+  height: 150px;
+  fill: filebrowserColor(regular);
+}
+
+.Filebrowser-fileCardLink {
+  position: relative;
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+
+  &:focus,
+  &:hover {
+    color: filebrowserColor(regular);
+  }
+
+  &,
+  &:active,
+  &:visited {
+    color: filebrowserColor(regular);
+  }
+}

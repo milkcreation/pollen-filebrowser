@@ -6,6 +6,7 @@ namespace Pollen\Filebrowser\Factory;
 
 use League\Flysystem\FilesystemException;
 use League\Flysystem\StorageAttributes;
+use Pollen\Filebrowser\FilebrowserInterface;
 use Pollen\Filesystem\LocalFilesystemInterface;
 use Pollen\Support\DateTime;
 
@@ -21,10 +22,12 @@ abstract class AbstractResourceInfo implements ResourceInfoInterface
 
     /**
      * @param StorageAttributes $resource
+     * @param FilebrowserInterface $filebrowser
      */
-    public function __construct(StorageAttributes $resource)
+    public function __construct(StorageAttributes $resource, FilebrowserInterface $filebrowser)
     {
         $this->resource = $resource;
+        $this->setFilebrowser($filebrowser);
     }
 
     /**
@@ -38,6 +41,20 @@ abstract class AbstractResourceInfo implements ResourceInfoInterface
     /**
      * @inheritDoc
      */
+    public function getDirname(): string
+    {
+        $dirname = dirname($this->getRelPath());
+
+        if ($dirname === '.') {
+            return '/';
+        }
+
+        return $dirname;
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function getHumanDate(string $format = 'Y-m-d'): ?string
     {
         return ($datetime = new DateTime($this->getMTime())) ? $datetime->format($format) : null;
@@ -46,7 +63,21 @@ abstract class AbstractResourceInfo implements ResourceInfoInterface
     /**
      * @inheritDoc
      */
-    public function getIcon(): string
+    public function getHumanType(): string
+    {
+        if ($this->isDir()) {
+            return 'répertoire';
+        }
+        if ($this->isFile()) {
+            return 'fichier';
+        }
+        return '';
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getIcon(array $attrs = [], string $placeholder = '_default'): string
     {
         return '';
     }
@@ -93,5 +124,13 @@ abstract class AbstractResourceInfo implements ResourceInfoInterface
     public function isLocal(): bool
     {
         return $this->filebrowser()->filesystem() instanceof LocalFilesystemInterface;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function isSelected(): bool
+    {
+        return ($selected = $this->filebrowser()->getSelectedInfo()) && $selected->getRelPath() === $this->getRelPath();
     }
 }

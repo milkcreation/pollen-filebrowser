@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Pollen\Filebrowser\Factory;
 
+use Pollen\Support\Html;
+
 class IconCollection implements IconCollectionInterface
 {
     use FilebrowserAwareTrait;
@@ -67,6 +69,7 @@ class IconCollection implements IconCollectionInterface
         'image/png'                                                               => 'image',
         'video/mp4'                                                               => 'video',
         'video/mpeg'                                                              => 'video',
+        'video/quicktime'                                                         => 'video',
         'video/ogg'                                                               => 'video',
         'video/webm'                                                              => 'video',
     ];
@@ -77,6 +80,14 @@ class IconCollection implements IconCollectionInterface
     public function get(string $name): ?string
     {
         return $this->iconsMap[$name] ?? null;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getDefaultPlaceholderName(): string
+    {
+        return '';
     }
 
     /**
@@ -93,24 +104,34 @@ class IconCollection implements IconCollectionInterface
     /**
      * @inheritDoc
      */
-    public function fileRender(FileInfoInterface $file): string
+    public function fileRender(FileInfoInterface $file, array $attrs = [], ?string $placeholder = 'file'): string
     {
         if (($mimeType = $file->getMimeType()) && ($name = $this->mimeTypeGet($mimeType))) {
-            return $this->render($name);
+            return $this->render($name, $attrs, null);
         }
+
+        if ($placeholder) {
+            return $this->render($placeholder, $attrs, null);
+        }
+
         return '';
     }
 
     /**
      * @inheritDoc
      */
-    public function render(string $name): string
+    public function render(string $name, array $attrs = [], ?string $placeholder = '_default'): string
     {
         if ($icon = $this->get($name)) {
             $url = $this->filebrowser()->manager()->getRouteUrl('sprites', ['sprite' => $icon]);
 
-            return "<svg><use xlink:href=\"$url\"></use></svg>";
+            return "<svg " . Html::attr($attrs) ."><use xlink:href=\"$url\"></use></svg>";
         }
+
+        if ($placeholder) {
+            return $this->render($placeholder, $attrs, null);
+        }
+
         return '';
     }
 }

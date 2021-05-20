@@ -1,0 +1,10 @@
+@import "./variables";
+
+.Filebrowser-notifier {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 360px;
+  z-index: 20;
+  transform: translate(-50%, -50%);
+}

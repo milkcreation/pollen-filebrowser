@@ -16,8 +16,8 @@ class DirInfo extends AbstractResourceInfo implements DirInfoInterface
     /**
      * @inheritDoc
      */
-    public function getIcon(): string
+    public function getIcon(array $attrs = [], string $placeholder = '_default'): string
     {
-        return $this->filebrowser()->getIcon('directory');
+        return $this->filebrowser()->getIcon('directory', $attrs, $placeholder);
     }
 }

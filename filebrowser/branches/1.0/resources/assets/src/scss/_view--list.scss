@@ -1,4 +1,17 @@
-[data-control="file-manager.content"][data-view="list"] {
+[data-filebrowser="view"][data-view="list"] {
+  .Filebrowser-viewFiles {
+    flex-direction: column;
+  }
+
+  .Filebrowser-viewFile {
+    flex-direction: row;
+  }
+
+  .Filebrowser-viewFileIcon {
+    width: 16px;
+    height: 16px;
+  }
+
   & .Filebrowser-contentFile:nth-child(odd) {
     background-color: tify_theme_color("white");
   }

@@ -4,8 +4,24 @@ declare(strict_types=1);
 
 namespace Pollen\Filebrowser\Factory;
 
+use SplFileInfo;
+
 interface FileInfoInterface extends ResourceInfoInterface
 {
+    /**
+     * Récupération de l'url de téléchargement du fichier.
+     *
+     * @return string
+     */
+    public function getDownloadUrl(): string;
+
+    /**
+     * Récupération de l'extension du fichier.
+     *
+     * @return string
+     */
+    public function getExtension(): string;
+
     /**
      * Récupération de la taille du fichier formatée.
      *
@@ -28,4 +44,11 @@ interface FileInfoInterface extends ResourceInfoInterface
      * @return int
      */
     public function getSize(): int;
+
+    /**
+     * Récupération de l'instance des informations du fichier.
+     *
+     * @return SplFileInfo
+     */
+    public function getSplFileInfo(): SplFileInfo;
 }

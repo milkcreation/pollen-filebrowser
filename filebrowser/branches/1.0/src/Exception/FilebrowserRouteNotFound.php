@@ -7,7 +7,7 @@ namespace Pollen\Filebrowser\Exception;
 use InvalidArgumentException;
 use Throwable;
 
-class FilebrowserRouteNotFound extends InvalidArgumentException
+class FilebrowserRouteNotFound extends InvalidArgumentException implements FilebrowserException
 {
     public function __construct(?string $endpoint = null, string $message = "", int $code = 0, Throwable $previous = null)
     {

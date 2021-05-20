@@ -1,15 +1,22 @@
 @import '~@pollen-solutions/pdf/resources/assets/src/scss/partial/pdf-viewer';
+@import '~dropzone/src/dropzone';
 @import '~@pollen-solutions/partial/resources/assets/src/scss/notice';
 @import '~@pollen-solutions/partial/resources/assets/src/scss/spinner';
 @import 'main';
-@import 'action-rename';
-@import 'action-upload';
+@import 'notifier';
+@import 'form-uploader';
 @import 'breadcrumb';
-@import 'browser';
-@import 'file-infos';
-@import 'notice';
-@import 'preview';
-@import 'sidebar';
-@import 'view-grid';
-@import 'view-list';
 @import 'switcher';
+@import 'file-card';
+@import 'sidebar';
+@import 'view';
+
+/** OLD **/
+//@import 'action-rename';
+//@import 'action-upload';
+//@import 'browser';
+//@import 'file-infos';
+
+//@import 'preview';
+//@import 'view-grid';
+//@import 'view-list';

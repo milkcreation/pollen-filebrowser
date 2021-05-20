@@ -70,14 +70,6 @@ class Breadcrumb implements BreadcrumbInterface
     /**
      * @inheritDoc
      */
-    public function get(string $url): ?string
-    {
-        return $this->parts[$url] ?? null;
-    }
-
-    /**
-     * @inheritDoc
-     */
     public function getIterator()
     {
         return new ArrayIterator($this->parts);
